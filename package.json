@@ -1,0 +1,39 @@
+{
+	"name": "tailwindcss-var-generator",
+	"version": "1.0.0",
+	"description": "A plugin for Tailwind CSS that generates CSS variables for all of the colors, sizes, and other styles defined in your Tailwind config. This allows you to use the styles from your Tailwind config directly in your CSS code.",
+	"main": "lib/index.js",
+	"source": "src/lib.ts",
+	"scripts": {
+		"build": "parcel build src/lib.ts",
+		"test-tw": "tailwindcss -c ./test/tailwind.config.js -i ./test/style.css -o ./test/output.css"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/0xtlt/tailwindcss-var-generator.git"
+	},
+	"keywords": [
+		"tailwindcss",
+		"tailwind",
+		"css",
+		"variables",
+		"var",
+		"generator",
+		"css-variables",
+		"css-vars"
+	],
+	"author": "Thomas Tastet",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/0xtlt/tailwindcss-var-generator/issues"
+	},
+	"homepage": "https://github.com/0xtlt/tailwindcss-var-generator#readme",
+	"devDependencies": {
+		"@swc/cli": "^0.1.57",
+		"@swc/core": "^1.3.21",
+		"parcel": "^2.8.0"
+	},
+	"dependencies": {
+		"tailwindcss": "^3"
+	}
+}
