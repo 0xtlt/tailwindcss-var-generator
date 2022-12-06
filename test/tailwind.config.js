@@ -1,5 +1,3 @@
-/* eslint-disable global-require */
-/* eslint-disable @typescript-eslint/no-var-requires */
 const plugin = require("tailwindcss/plugin");
 
 const { tailwindCssVariables } = require("../lib/index");
