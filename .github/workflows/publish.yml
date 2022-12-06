@@ -1,29 +1,19 @@
-name: Release
+name: Publish npm package
 
 on:
-  push:
-    tags:
-      - "*"
+  release:
+    types: [published]
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-      # Check out the code
-      - uses: actions/checkout@v2
-
-      # Install the dependencies
-      - run: npm install
-
-      # Build the code
-      - run: npm run build
-
-      # Publish the package to npm
-      - uses: actions/npm@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          publish-tarball: lib/
-          access: public
-          # Replace with your own npm token
-          # You can create a new token at https://www.npmjs.com/settings/<your-npm-username>/tokens
-          # Make sure to keep this token secret, as anyone with access to it can publish to your npm packages
-          npm-token: ${{ secrets.NPM_TOKEN }}
+          node-version: 12
+      - run: npm install
+      - run: npm run build
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
